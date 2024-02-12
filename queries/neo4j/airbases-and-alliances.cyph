@@ -1,0 +1,11 @@
+match (b:Base)-->(c:Country)-->(co:Continent)
+with b as base, c as country, co as continent
+match (country)-[:IN_ALLIANCE]->(a:Alliance)
+return continent.name as continent,
+       country.name as country,
+       country.iso_3166_1_alpha_3_code as country_code,
+       base.name as base, base.icao as icao, base.fuel as fuel,
+       base.location.x as longitude,
+       base.location.y as latitude,
+       base.url as base_url,
+       collect(a.name) as alliances
