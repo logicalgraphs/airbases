@@ -1,0 +1,5 @@
+match (b:Base), (c:Base)
+where b.name contains "Thule"
+    and point.distance(b.location, c.location) < 1750 * 1640
+    and c.fuel > 2500000
+    return c.name, c.icao, c.fuel
