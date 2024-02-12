@@ -1,0 +1,7 @@
+match (b:Base)-->(c:Country)-->(co:Continent)
+set b.fuel = round(rand() * 3000000 + 100000)
+return co.name as continent,
+       c.name as country,
+       b.name as base, b.icao as icao, b.fuel as fuel,
+       b.location.x as longitude, b.location.y as latitude,
+       b.url as url
