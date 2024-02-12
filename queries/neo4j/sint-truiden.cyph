@@ -1,0 +1,7 @@
+# gets all airbases within 100 miles of Sint-Truiden AB (Belgium)
+
+match (b:Base { name: "Sint-Truiden Air Base"})
+with b
+match (a:Base)
+where point.distance(b.location, a.location) < 100 * 1640
+return a
