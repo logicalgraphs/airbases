@@ -1,0 +1,120 @@
+[
+  {
+    "alliance": "Franks",
+    "url": "http://www.wikidata.org/entity/Q43482",
+    "country_iso_code": [
+      "FRA"
+    ]
+  },
+  {
+    "alliance": "Allies of the First World War",
+    "url": "http://www.wikidata.org/entity/Q215669",
+    "country_iso_code": [
+      "BEL"
+    ]
+  },
+  {
+    "alliance": "Western European Union",
+    "url": "http://www.wikidata.org/entity/Q189946",
+    "country_iso_code": [
+      "DEU",
+      "ITA"
+    ]
+  },
+  {
+    "alliance": "Southeast Asia Treaty Organization",
+    "url": "http://www.wikidata.org/entity/Q277252",
+    "country_iso_code": [
+      "AUS",
+      "FRA",
+      "NZL",
+      "PAK",
+      "PHL",
+      "THA",
+      "GBR"
+    ]
+  },
+  {
+    "alliance": "Collective Security Treaty Organization",
+    "url": "http://www.wikidata.org/entity/Q318693",
+    "country_iso_code": [
+      "ARM",
+      "AZE",
+      "BLR",
+      "KAZ",
+      "KGZ",
+      "RUS",
+      "TJK",
+      "UZB"
+    ]
+  },
+  {
+    "alliance": "GUAM Organization for Democracy and Economic Development",
+    "url": "http://www.wikidata.org/entity/Q326816",
+    "country_iso_code": [
+      "AZE",
+      "UZB"
+    ]
+  },
+  {
+    "alliance": "ANZUS",
+    "url": "http://www.wikidata.org/entity/Q295875",
+    "country_iso_code": [
+      "AUS",
+      "NZL"
+    ]
+  },
+  {
+    "alliance": "ANZUK",
+    "url": "http://www.wikidata.org/entity/Q2625543",
+    "country_iso_code": [
+      "AUS",
+      "NZL",
+      "GBR"
+    ]
+  },
+  {
+    "alliance": "North Atlantic Treaty Organization",
+    "url": "http://www.wikidata.org/entity/Q7184",
+    "country_iso_code": [
+      "ALB",
+      "BEL",
+      "BGR",
+      "CAN",
+      "HRV",
+      "CZE",
+      "DNK",
+      "EST",
+      "FIN",
+      "FRA",
+      "DEU",
+      "GRC",
+      "HUN",
+      "ITA",
+      "LVA",
+      "LTU",
+      "NLD",
+      "NOR",
+      "POL",
+      "PRT",
+      "ROU",
+      "RUS",
+      "SVK",
+      "ESP",
+      "TUR",
+      "GBR",
+      "USA"
+    ]
+  },
+  {
+    "alliance": "Warsaw Pact",
+    "url": "http://www.wikidata.org/entity/Q41644",
+    "country_iso_code": [
+      "ALB",
+      "BGR",
+      "HUN",
+      "POL",
+      "ROU"
+    ]
+  }
+]

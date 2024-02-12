@@ -1,0 +1,3 @@
+match (a:Alliance)<--(c:Country)
+return a.name as alliance, a.url as url,
+       collect(c.iso_3166_1_alpha_3_code) as country_iso_code
