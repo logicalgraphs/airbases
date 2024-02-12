@@ -1,4 +1,89 @@
-alliance,allianceLabel,country,countryLabel,code
+alliance,allianceLabel,abbrev,established,code
+https://en.wikipedia.org/wiki/Anglo-Portuguese_Treaty_of_1373,Anglo-Portuguese Treaty of 1373,,1373,GBR
+https://en.wikipedia.org/wiki/Anglo-Portuguese_Treaty_of_1373,Anglo-Portuguese Treaty of 1373,,1373,PRT
+https://en.wikipedia.org/wiki/Treaty_of_Windsor_(1386),Treaty of Windsor (1386),,1386,GBR
+https://en.wikipedia.org/wiki/Treaty_of_Windsor_(1386),Treaty of Windsor (1386),,1386,PRT
+https://en.wikipedia.org/wiki/Entente_Cordiale,Entente Cordiale,,1904,FRA
+https://en.wikipedia.org/wiki/Entente_Cordiale,Entente Cordiale,,1904,GBR
+https://en.wikipedia.org/wiki/Ogdensburg_Agreement,Ogdensburg Agreement,,1940,CAN
+https://en.wikipedia.org/wiki/Ogdensburg_Agreement,Ogdensburg Agreement,,1940,USA
+https://en.wikipedia.org/wiki/Five_Eyes,Five Eyes,FVEY,1943,AUS
+https://en.wikipedia.org/wiki/Five_Eyes,Five Eyes,FVEY,1943,CAN
+https://en.wikipedia.org/wiki/Five_Eyes,Five Eyes,FVEY,1943,NZL
+https://en.wikipedia.org/wiki/Five_Eyes,Five Eyes,FVEY,1943,GBR
+https://en.wikipedia.org/wiki/Five_Eyes,Five Eyes,FVEY,1943,USA
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,USA
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,TTO
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,ARG
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,BHS
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,BRA
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,CHL
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,COL
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,CRI
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,DOM
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,SLV
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,GTM
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,HTI
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,PAN
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,PRY
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,PER
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,VEN
+https://en.wikipedia.org/wiki/Inter-American_Treaty_of_Reciprocal_Assistance,Inter-American Treaty of Reciprocal Assistance,Rio Pact,1947,URY
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,CAN
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,CZE
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,FRA
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,GBR
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,ALB
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,BEL
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,BGR
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,HRV
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,DNK
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,EST
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,FIN
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,DEU
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,GRC
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,HUN
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,ITA
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,LVA
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,LTU
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,LUX
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,NLD
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,NOR
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,POL
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,PRT
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,ROU
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,SVK
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,ESP
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,TUR
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,ISL
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,MNE
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,MKD
+https://en.wikipedia.org/wiki/NATO,North Atlantic Treaty Organization,NATO,1949,SVN
+https://en.wikipedia.org/wiki/Mutual_Defense_Treaty_(United_States%E2%80%93Philippines),Mutual Defense Treaty between the Republic of the Philippines and the United States of America,MDT,1951,USA
+https://en.wikipedia.org/wiki/Mutual_Defense_Treaty_(United_States%E2%80%93Philippines),Mutual Defense Treaty between the Republic of the Philippines and the United States of America,MDT,1951,PHL
+https://en.wikipedia.org/wiki/ANZUS,ANZUS,ANZUS,1951,AUS
+https://en.wikipedia.org/wiki/ANZUS,ANZUS,ANZUS,1951,NZL
+https://en.wikipedia.org/wiki/ANZUS,ANZUS,ANZUS,1951,USA
+https://en.wikipedia.org/wiki/U.S.%E2%80%93Japan_Alliance,U.S.–Japan Alliance,,1951,USA
+https://en.wikipedia.org/wiki/U.S.%E2%80%93Japan_Alliance,U.S.–Japan Alliance,,1951,JPN
+https://en.wikipedia.org/wiki/Brazil%E2%80%93United_States_Treaty,Brazil–United States Treaty,,1952,BRA
+https://en.wikipedia.org/wiki/Brazil%E2%80%93United_States_Treaty,Brazil–United States Treaty,,1952,USA
+https://www.state.gov/u-s-security-cooperation-with-israel,US–Israel Mutual Defense Assistance Agreement,,1952,ISR
+https://www.state.gov/u-s-security-cooperation-with-israel,US–Israel Mutual Defense Assistance Agreement,,1952,USA
+https://en.wikipedia.org/wiki/Mutual_Defense_Treaty_(United_States%E2%80%93South_Korea),Mutual Defense Treaty (United States–South Korea),,1953,KOR
+https://en.wikipedia.org/wiki/Mutual_Defense_Treaty_(United_States%E2%80%93South_Korea),Mutual Defense Treaty (United States–South Korea),,1953,USA
+https://en.wikipedia.org/wiki/Pakistan%E2%80%93United_States_military_relations,Mutual Defense Assistance Agreement (United States–Pakistan),,1954,PAK
+https://en.wikipedia.org/wiki/Pakistan%E2%80%93United_States_military_relations,Mutual Defense Assistance Agreement (United States–Pakistan),,1954,USA
+https://en.wikipedia.org/wiki/US%E2%80%93UK_Mutual_Defence_Agreement,US–UK Mutual Defence Agreement,,1958,GBR
+https://en.wikipedia.org/wiki/US%E2%80%93UK_Mutual_Defence_Agreement,US–UK Mutual Defence Agreement,,1958,USA
+https://en.wikipedia.org/wiki/Treaty_of_Mutual_Cooperation_and_Security_between_the_United_States_and_Japan,U.S.-Japan Security Treaty,Anpo,1960,JPN
+https://en.wikipedia.org/wiki/Treaty_of_Mutual_Cooperation_and_Security_between_the_United_States_and_Japan,U.S.-Japan Security Treaty,Anpo,1960,USA
+https://en.wikipedia.org/wiki/Sino-North_Korean_Treaty_of_Friendship,_Co-operation,_and_Mutual_Assistance,Sino-North Korean Mutual Aid and Cooperation Friendship Treaty,,1961,PRK
+https://en.wikipedia.org/wiki/Sino-North_Korean_Treaty_of_Friendship,_Co-operation,_and_Mutual_Assistance,Sino-North Korean Mutual Aid and Cooperation Friendship Treaty,,1961,CHN
+
+
+
+
 http://www.wikidata.org/entity/Q43482,Franks,http://www.wikidata.org/entity/Q142,France,FRA
 http://www.wikidata.org/entity/Q215669,Allies of the First World War,http://www.wikidata.org/entity/Q31,Belgium,BEL
 http://www.wikidata.org/entity/Q189946,Western European Union,http://www.wikidata.org/entity/Q38,Italy,ITA

@@ -1,4 +1,4 @@
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/logicalgraphs/airbases/main/queries/neo4j/etl/alliances.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/logicalgraphs/airbases/main/queries/neo4j/etl/data/alliances.csv' AS row
 merge (a:Alliance { name: row.allianceLabel, url: row.alliance})
 with a as alliance, row as r
 match (c:Country {iso_3166_1_alpha_3_code: r.code})
