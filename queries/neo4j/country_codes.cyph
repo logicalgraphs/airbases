@@ -1,0 +1,2 @@
+match (c:Country) where c.iso_3166_1_alpha_3_code is not null
+return c.name as country, c.iso_3166_1_alpha_3_code as country_code
