@@ -39,3 +39,4 @@ MATCH (c:Country { name: "Thailand (Muang Thai)" }) SET c.name="Thailand";
 MATCH (c:Country { name: "Turkmenistan" }) SET c.name="Turkish Republic of Northern Cyprus"; 
 MATCH (c:Country { name: "Ukraine (Україна)" }) SET c.name="Ukraine"; 
 match (c:Country { name: "Iceland** (Island)" }) set c.name="Iceland";
+match (c:Country { name: "Montenegro (Crna Gora, Црна Гора)" }) set c.name="Montenegro";
