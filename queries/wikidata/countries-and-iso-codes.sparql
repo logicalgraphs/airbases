@@ -1,9 +1,10 @@
 # countries and ISO 3166-1 alpha-3 codes
-SELECT ?country ?countryLabel ?code
+SELECT ?continentLabel ?country ?countryLabel ?code
 WHERE 
 {
   ?country wdt:P31 wd:Q6256.
-  ?country wdt:P298 ?code .
+  ?country wdt:P30 ?continent.
+  ?country wdt:P298 ?code.
   SERVICE wikibase:label { 
     bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en".
   }
