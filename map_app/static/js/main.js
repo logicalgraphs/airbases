@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
     let map;
     let markers = [];
     let locationsData = [];  // Array to store names and locations
@@ -35,8 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
             clearMarkers();
         });
     }
-
-    
 
     // Function to add marker to the map
     function addMarker(location) {
@@ -70,16 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
         addMarker(location);
     }
 
-
 const datalist = document.getElementById('locations');
 const destinationDatalist = document.getElementById('destinations');
 
 
 // Google Maps API Key
-const googleMapsApiKey = 'AIzaSyBa4twY7Ccsr0tnFcn34A0RxBH5qLIvCVI'; // Replace with your actual Google Maps API key
+const googleMapsApiKey = 'noone'; // Replace with your actual Google Maps API key
 
 
 let selectedLocationMarker = null;
+
 // Function to show a marker on the map
 function showMarkerOnMap(locationData) {
     console.log("Selected Location",locationData.longitude);
@@ -158,18 +155,6 @@ fetch('/static/files/combined_data_airbases.json')  // Update the file path acco
     data.forEach(entry => {
         const fields = entry._fields;
         
-        // Extract relevant information and combine into a single object
-        // const combinedEntry = {
-        //   continent: fields[0],
-        //   country: fields[1],
-        //   base: fields[2],
-        //   icao: fields[3],
-        //   fuel: fields[4],
-        //   longitude: fields[5],
-        //   latitude: fields[6],
-        //   url: fields[7]
-        // };
-
         const combinedEntry = {
           continent: entry.continent,
           country: entry.country,
@@ -298,11 +283,7 @@ console.log("Inside flight path");
     title: destination.base,
   });
 
-  destinationMarker.addListener('click', () => {
-    openPopupCard(destinationData);
-    
-});
-    
+  destinationMarker.addListener('click', () => { openPopupCard(destinationData);});
   }
 
   function animateArrow(line) {
@@ -318,8 +299,6 @@ console.log("Inside flight path");
       line.set("icons", icons);
     }, 20);
   }
-
-
 
 // Add event listener for search button click
 if (searchButton) {
@@ -351,57 +330,23 @@ if (searchButton) {
               { lat: selectedLocation.latitude, lng: selectedLocation.longitude },
               { lat: nearestLocation.latitude, lng: nearestLocation.longitude },nearestLocation
             );
-
           }
-
-
       }
     }
     else{
-        //   showMarkerOnMap(nearestLocation);
-  
         console.log("Advance search");
-          // Show proximity circle on the map
           showProximityCircleOnMap(selectedLocation, proximity);
-  
-          // Get all locations within the proximity circle
           const locationsWithinProximity = getAllLocationsWithinProximity(selectedLocation, proximity);
-  
-          // Create markers for all locations within the proximity circle
           showMarkersOnMap(selectedLocation, locationsWithinProximity);
         
   }
-    //   if (!isNaN(proximity) && selectedLocation) {
-    //     // Clear existing markers and circles
-    //     if (selectedLocationMarker) {
-            
-    //       selectedLocationMarker.setMap(null);
-    //     }
-    //     if (proximityCircle) {
-    //       proximityCircle.setMap(null);
-    //     }
-
-    //     // Show proximity circle on the map
-    //     showProximityCircleOnMap(selectedLocation, proximity);
-
-    //     // Get all locations within the proximity circle
-    //     const locationsWithinProximity = getAllLocationsWithinProximity(selectedLocation, proximity);
-        
-
-    //     // Create markers for all locations within the proximity circle
-    //     showMarkersOnMap(selectedLocation,locationsWithinProximity);
-    //   }
     });
   }
   let markers = [];
-  //let map = null; // Declare a global map variable
 
-// Function to show markers on the map
 function showMarkersOnMap(location,locationsData) {
    
     if (map) {
-        // Clear existing markers
-        
         clearMarkers();
 
         // Create a new marker for each location
@@ -418,7 +363,7 @@ function showMarkersOnMap(location,locationsData) {
             // Add click event listener
         marker.addListener('click', () => {
             openPopupCard(locationData);
-            // Optionally, you can add more logic or actions when a marker is clicked
+            // Optionally, you can add more logic ... blah-blah-blah.
         });
         });
 
@@ -428,7 +373,6 @@ function showMarkersOnMap(location,locationsData) {
     }
 }
 
-// Function to find the nearest location based on user input and show marker on the map
 function findNearestLocationAndShowMarker(desiredFuel) {
     let nearestLocation = null;
     let minDistance = Number.MAX_VALUE;
@@ -545,18 +489,4 @@ function openPopupCard(selectedLocation) {
     // Show the popup card
     popupCard.style.display = 'block';
 }
-
-
-
-    // // Add event listener for dynamically updating the map when a location is clicked in the list
-    // locationListContainer.addEventListener('click', function (event) {
-    //     if (event.target.classList.contains('location-item')) {
-    //         const selectedLocationName = event.target.textContent;
-    //         const selectedLocation = locationsData.find(location => location.name === selectedLocationName);
-
-    //         if (selectedLocation) {
-    //             updateMap(selectedLocation);
-    //         }
-    //     }
-    // });
 });

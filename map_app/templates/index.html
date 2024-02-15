@@ -17,27 +17,37 @@
         <div id="search-container">
             <label for="location">Location</label>
             <input type="text" id="location" name="location" placeholder="Enter location" list="locations">
-
+        
             <!-- Dynamic datalist for location suggestions -->
             <datalist id="locations">
                 <!-- Suggestions will be dynamically populated -->
             </datalist>
-
-            <label for="destination">Destination</label>
-            <input type="text" id="destination" name="destination" placeholder="Enter destination" list="destinations">
-            <!-- Dynamic datalist for destination suggestions -->
-            <datalist id="destinations">
-                <!-- Suggestions will be dynamically populated -->
-            </datalist>
-
-            <label for="proximity">Proximity (miles)</label>
-            <input type="number" id="proximity" name="proximity" placeholder="Enter proximity">
-
+        
             <label for="fuel-requested">Fuel Requested</label>
-            <input type="text" id="fuel-requested" name="fuel-requested" placeholder="Enter fuel requested">
+            <input type="number" id="fuel-requested" name="fuel-requested" placeholder="Enter fuel requested">
+        
+            <div id="advanced-options">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter destination" list="destinations">
+                <!-- Dynamic datalist for destination suggestions -->
+                <datalist id="destinations">
+                    <!-- Suggestions will be dynamically populated -->
+                </datalist>
+        
+                <label for="proximity">Proximity (miles)</label>
+                <input type="number" id="proximity" name="proximity" placeholder="Enter proximity">
+            </div>
 
             <button id="search-button">Search</button>
+            <span id="advanced-search-text" class="clickable-text">Advanced Search</span>
+
+        
+            
+        
+            
         </div>
+        
+        
         <div id="map-container">
             <!-- The map will be rendered here -->
         </div>
@@ -47,10 +57,14 @@
 
         <!-- Add this code inside the body tag, adjust the styles as needed -->
 <div id="popup-card" class="popup-card">
-    <span class="close-button" onclick="closePopupCard()">&times;</span>
-    <h2 id="popup-card-title">Destination Information</h2>
+    <span class="close-button" onclick="document.getElementById('popup-card').style.display='none'">&times;</span>
+    <h2 id="popup-card-title">Air Base Information</h2>
     <p><strong>Name:</strong> <span id="popup-card-name"></span></p>
+    <p><strong>Country:</strong> <span id="popup-card-country"></span></p>
+    <p><strong>Continent:</strong> <span id="popup-card-continent"></span></p>
     <p><strong>ICAO:</strong> <span id="popup-card-icao"></span></p>
+    <p><strong>Fuel (Gallons):</strong> <span id="popup-card-fuel"></span></p>
+    <p><strong>Alliances:</strong> <span id="popup-card-alliances">{{ alliances_text | default('None') }}</span></p>
     <p><strong>URL:</strong> <a id="popup-card-url" target="_blank" rel="noopener noreferrer"></a></p>
 
     <!-- Add more information fields as needed -->
