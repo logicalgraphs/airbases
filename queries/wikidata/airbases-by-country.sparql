@@ -1,0 +1,9 @@
+SELECT ?item ?itemLabel ?icao ?countryLabel ?loc 
+WHERE {  ?item wdt:P31 wd:Q695850.   
+         ?item wdt:P239 ?icao.  
+         ?item wdt:P17 ?country. 
+         ?item wdt:P625 
+         ?loc SERVICE wikibase:label {
+              bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en".
+         }
+}
