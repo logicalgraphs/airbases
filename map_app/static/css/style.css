@@ -92,3 +92,15 @@ button {
     font-size: 20px;
     color: #333;
 }
+
+#advanced-options {
+    display: none;
+}
+
+.clickable-text {
+    display: block;
+    color: grey; /* You can choose your preferred color */
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline;
+}

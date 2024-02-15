@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const destinationInput = document.getElementById('destination');
     const proximityInput = document.getElementById('proximity'); // Updated ID for proximity input
 
+    const advancedSearchText = document.getElementById('advanced-search-text');
+    const advancedOptions = document.getElementById('advanced-options');
+
+    if (advancedSearchText && advancedOptions) {
+        advancedSearchText.addEventListener('click', function () {
+            advancedOptions.style.display = (advancedOptions.style.display === 'none') ? 'block' : 'none';
+        });
+    }
+
 
     let map;
     let markers = [];
@@ -37,6 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         markers.push(marker);
+
+        marker.addListener('click', () => {
+            openPopupCard(location);
+            // Optionally, you can add more logic or actions when a marker is clicked
+        });
     }
 
     // Function to clear markers from the map
@@ -50,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update the map based on user-selected location
     function updateMap(selectedLocation) {
         clearMarkers();
-        const location = new google.maps.LatLng(selectedLocation.location.y, selectedLocation.location.x);
+        const location = new google.maps.LatLng(selectedLocation.latitude, selectedLocation.longitude);
         map.setCenter(location);
         map.setZoom(10);  // Adjust the zoom level as needed
         addMarker(location);
@@ -68,9 +82,10 @@ const googleMapsApiKey = 'AIzaSyBa4twY7Ccsr0tnFcn34A0RxBH5qLIvCVI'; // Replace w
 let selectedLocationMarker = null;
 // Function to show a marker on the map
 function showMarkerOnMap(locationData) {
+    console.log("Selected Location",locationData.longitude);
   if (mapContainer) {
     const mapOptions = {
-      center: { lat: locationData.location.y, lng: locationData.location.x },
+      center: { lat: locationData.latitude, lng: locationData.longitude },
       zoom: 14, // You can adjust the zoom level as needed
       mapTypeId: 'satellite'
     };
@@ -79,7 +94,7 @@ function showMarkerOnMap(locationData) {
 
     // Create a marker on the map
     selectedLocationMarker = new google.maps.Marker({
-      position: { lat: locationData.location.y, lng: locationData.location.x },
+      position: { lat: locationData.latitude, lng: locationData.longitude },
       map: map,
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
@@ -89,7 +104,12 @@ function showMarkerOnMap(locationData) {
         strokeColor: '#FFFFFF',
         strokeWeight: 1,
       },
-      title: locationData.name,
+      title: locationData.base,
+    });
+
+    selectedLocationMarker.addListener('click', () => {
+        openPopupCard(locationData);
+        // Optionally, you can add more logic or actions when a marker is clicked
     });
 
     // You can add additional customization to the marker if needed
@@ -119,16 +139,16 @@ function showProximityCircleOnMap(locationData, proximity) {
       });
 
       proximityLocationMarker = new google.maps.Marker({
-        position: { lat: locationData.location.y, lng: locationData.location.x },
+        position: { lat: locationData.latitude, lng: locationData.longitude },
         map: map,
-        title: `Proximity to ${locationData.name}`
+        title: `Proximity to ${locationData.base}`
       });
   
     }
   }
 
 // Fetch JSON data (replace with your actual API endpoint)
-fetch('/static/files/all-airbases-response.json')  // Update the file path accordingly
+fetch('/static/files/combined_data_airbases.json')  // Update the file path accordingly
   .then(response => response.json())
   .then(data => {
     // Initialize an empty list to store combined information
@@ -136,14 +156,32 @@ fetch('/static/files/all-airbases-response.json')  // Update the file path accor
 
     // Iterate through each entry in the JSON response
     data.forEach(entry => {
-      // Extract relevant information and combine into a single object
-      const properties = entry._fields[0].properties;
-      const combinedEntry = {
-        location: properties.location,
-        icao: properties.icao,
-        name: properties.name,
-        url: properties.url
-      };
+        const fields = entry._fields;
+        
+        // Extract relevant information and combine into a single object
+        // const combinedEntry = {
+        //   continent: fields[0],
+        //   country: fields[1],
+        //   base: fields[2],
+        //   icao: fields[3],
+        //   fuel: fields[4],
+        //   longitude: fields[5],
+        //   latitude: fields[6],
+        //   url: fields[7]
+        // };
+
+        const combinedEntry = {
+          continent: entry.continent,
+          country: entry.country,
+          country_code: entry.country_code,
+          base: entry.base,
+          icao: entry.icao,
+          fuel: entry.fuel,
+          longitude: entry.longitude,
+          latitude: entry.latitude,
+          url: entry.url,
+          alliances: entry.alliances
+        };
 
       // Push the combined entry into the list
       combinedList.push(combinedEntry);
@@ -151,6 +189,7 @@ fetch('/static/files/all-airbases-response.json')  // Update the file path accor
 
     // Check if the data structure is as expected
     if (Array.isArray(combinedList) && combinedList.length > 0) {
+      console.log("This is inside list",combinedList.length);
       // Populate the datalist for location suggestions
       if (datalist) {
         // Clear existing options
@@ -159,13 +198,13 @@ fetch('/static/files/all-airbases-response.json')  // Update the file path accor
         // Add options for each entry in the combined list
         combinedList.forEach(entry => {
           const option = document.createElement('option');
-          option.value = entry.name;
+          option.value = entry.base;
           datalist.appendChild(option);
         });
 
         // Add event listener for location selection
         locationInput.addEventListener('input', (event) => {
-          selectedLocation = combinedList.find(entry => entry.name === event.target.value);
+          selectedLocation = combinedList.find(entry => entry.base === event.target.value);
           if (selectedLocation) {
             // Show marker on the map
             showMarkerOnMap(selectedLocation);
@@ -183,20 +222,20 @@ if (Array.isArray(combinedList) && combinedList.length > 0) {
       // Add options for each entry in the combined list
       combinedList.forEach(entry => {
         const option = document.createElement('option');
-        option.value = entry.name;
+        option.value = entry.base;
         destinationDatalist.appendChild(option);
       });
   
       // Add event listener for destination selection
       destinationInput.addEventListener('input', (event) => {
-        const selectedDestination = combinedList.find(entry => entry.name === event.target.value);
+        const selectedDestination = combinedList.find(entry => entry.base === event.target.value);
         if (selectedDestination) {
           // Draw flight path to the selected destination
           openPopupCard(selectedDestination);
           console.log("This is the selected location", selectedLocationMarker)
           drawFlightPath(
-            { lat: selectedLocation.location.y, lng: selectedLocation.location.x },
-            { lat: selectedDestination.location.y, lng: selectedDestination.location.x }
+            { lat: selectedLocation.latitude, lng: selectedLocation.longitude },
+            { lat: selectedDestination.latitude, lng: selectedDestination.longitude },selectedDestination
           );
         }
       });
@@ -204,7 +243,7 @@ if (Array.isArray(combinedList) && combinedList.length > 0) {
   }
 
   // Function to draw a flight path between two locations
-function drawFlightPath(origin, destination) {
+function drawFlightPath(origin, destination, destinationData) {
 console.log("Inside flight path");
     const lineSymbol = {
         path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -237,12 +276,32 @@ console.log("Inside flight path");
   // Fit the map viewport to the bounding box with padding
   map.fitBounds(bounds, 50); // Adjust padding as needed
 
+  //Creating Marker for the origin
+  selectedLocationMarker = new google.maps.Marker({
+    position: origin,
+    map: map,
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 6,
+      fillColor: '#0000FF',
+      fillOpacity: 1,
+      strokeColor: '#FFFFFF',
+      strokeWeight: 1,
+    },
+    title: selectedLocation.base,
+  });
+
   // Create a Marker for the destination
   const destinationMarker = new google.maps.Marker({
     position: destination,
     map: map,
-    title: 'Destination',
+    title: destination.base,
   });
+
+  destinationMarker.addListener('click', () => {
+    openPopupCard(destinationData);
+    
+});
     
   }
 
@@ -265,29 +324,73 @@ console.log("Inside flight path");
 // Add event listener for search button click
 if (searchButton) {
     searchButton.addEventListener('click', () => {
-      const selectedLocation = combinedList.find(entry => entry.name === locationInput.value);
+
+      const selectedLocation = combinedList.find(entry => entry.base === locationInput.value);
       const proximity = parseFloat(proximityInput.value);
 
-      if (!isNaN(proximity) && selectedLocation) {
-        // Clear existing markers and circles
-        if (selectedLocationMarker) {
+      const desiredFuel = parseFloat(document.getElementById('fuel-requested').value);
+
+      const advancedOptions = document.getElementById('advanced-options');
+      if(advancedOptions.style.display !== 'block'){
+
+        console.log("We are always inside",advancedOptions.style.display);
+
+        if (!isNaN(desiredFuel)) {
+          // Find the nearest location based on fuel availability
+          const nearestLocation = findNearestLocationAndShowMarker(desiredFuel);
+    
+          if (nearestLocation) {
+              console.log('Nearest Location:', nearestLocation);
+            // Clear existing markers and circles
+            clearMarkers();
+            if (proximityCircle) {
+              proximityCircle.setMap(null);
+            }
+  
+            drawFlightPath(
+              { lat: selectedLocation.latitude, lng: selectedLocation.longitude },
+              { lat: nearestLocation.latitude, lng: nearestLocation.longitude },nearestLocation
+            );
+
+          }
+
+
+      }
+    }
+    else{
+        //   showMarkerOnMap(nearestLocation);
+  
+        console.log("Advance search");
+          // Show proximity circle on the map
+          showProximityCircleOnMap(selectedLocation, proximity);
+  
+          // Get all locations within the proximity circle
+          const locationsWithinProximity = getAllLocationsWithinProximity(selectedLocation, proximity);
+  
+          // Create markers for all locations within the proximity circle
+          showMarkersOnMap(selectedLocation, locationsWithinProximity);
+        
+  }
+    //   if (!isNaN(proximity) && selectedLocation) {
+    //     // Clear existing markers and circles
+    //     if (selectedLocationMarker) {
             
-          selectedLocationMarker.setMap(null);
-        }
-        if (proximityCircle) {
-          proximityCircle.setMap(null);
-        }
+    //       selectedLocationMarker.setMap(null);
+    //     }
+    //     if (proximityCircle) {
+    //       proximityCircle.setMap(null);
+    //     }
 
-        // Show proximity circle on the map
-        showProximityCircleOnMap(selectedLocation, proximity);
+    //     // Show proximity circle on the map
+    //     showProximityCircleOnMap(selectedLocation, proximity);
 
-        // Get all locations within the proximity circle
-        const locationsWithinProximity = getAllLocationsWithinProximity(selectedLocation, proximity);
+    //     // Get all locations within the proximity circle
+    //     const locationsWithinProximity = getAllLocationsWithinProximity(selectedLocation, proximity);
         
 
-        // Create markers for all locations within the proximity circle
-        showMarkersOnMap(selectedLocation,locationsWithinProximity);
-      }
+    //     // Create markers for all locations within the proximity circle
+    //     showMarkersOnMap(selectedLocation,locationsWithinProximity);
+    //   }
     });
   }
   let markers = [];
@@ -304,13 +407,19 @@ function showMarkersOnMap(location,locationsData) {
         // Create a new marker for each location
         locationsData.forEach(locationData => {
             const marker = new google.maps.Marker({
-                position: { lat: locationData.location.y, lng: locationData.location.x },
+                position: { lat: locationData.latitude, lng: locationData.longitude },
                 map: map,
-                title: locationData.name
+                title: locationData.base
             });
 
             // Add the marker to the global markers array
             markers.push(marker);
+
+            // Add click event listener
+        marker.addListener('click', () => {
+            openPopupCard(locationData);
+            // Optionally, you can add more logic or actions when a marker is clicked
+        });
         });
 
         // Center the map on the first marker
@@ -318,6 +427,31 @@ function showMarkersOnMap(location,locationsData) {
         map.setCenter(markers[0].getPosition());
     }
 }
+
+// Function to find the nearest location based on user input and show marker on the map
+function findNearestLocationAndShowMarker(desiredFuel) {
+    let nearestLocation = null;
+    let minDistance = Number.MAX_VALUE;
+  
+    combinedList.forEach(location => {
+        if (location !== selectedLocation) {
+      const distance = calculateDistance(selectedLocation.latitude, selectedLocation.longitude, location.latitude, location.longitude);
+  
+      // Check if the location has the desired fuel quantity and is closer than the current nearest location
+      if (location.fuel >= desiredFuel && distance < minDistance) {
+        nearestLocation = location;
+        minDistance = distance;
+      }
+    }
+    });
+  
+    if (nearestLocation) {
+      // Assuming you have a global 'map' object and a function 'showMarkerOnMap'
+      showMarkerOnMap(nearestLocation);
+    }
+  
+    return nearestLocation;
+  }
 
 // Function to clear all markers from the map
 function clearMarkers() {
@@ -331,10 +465,10 @@ function getAllLocationsWithinProximity(selectedLocation, proximityMiles) {
     // Filter locations within the proximity circle
     const locationsWithinProximity = combinedList.filter(location => {
         const distance = calculateDistance(
-            selectedLocation.location.y,
-            selectedLocation.location.x,
-            location.location.y,
-            location.location.x
+            selectedLocation.latitude,
+            selectedLocation.longitude,
+            location.latitude,
+            location.longitude
         );
 
         return distance <= proximityMiles;
@@ -389,14 +523,22 @@ function openPopupCard(selectedLocation) {
     const popupCard = document.getElementById('popup-card');
     const titleElement = document.getElementById('popup-card-title');
     const nameElement = document.getElementById('popup-card-name');
+    const countryElement = document.getElementById('popup-card-country');
+    const continentElement = document.getElementById('popup-card-continent');
     const icaoElement = document.getElementById('popup-card-icao');
+    const fuelElement = document.getElementById('popup-card-fuel');
     const urlElement = document.getElementById('popup-card-url');
+    const allaincesElement = document.getElementById('popup-card-alliances');
 
     // Populate information
-    titleElement.textContent = 'Destination Information';
-    nameElement.textContent = selectedLocation.name;
+    titleElement.textContent = 'Air Base Information';
+    nameElement.textContent = selectedLocation.base;
+    countryElement.textContent = selectedLocation.country;
+    continentElement.textContent = selectedLocation.continent;
     icaoElement.textContent = selectedLocation.icao;
+    fuelElement.textContent = selectedLocation.fuel;
     urlElement.innerHTML = `<a href="${selectedLocation.url}" target="_blank" rel="noopener noreferrer">${selectedLocation.url}</a>`;
+    allaincesElement.textContent = selectedLocation.alliances;
 
     // Add more information fields as needed
 
