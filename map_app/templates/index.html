@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location Search</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa4twY7Ccsr0tnFcn34A0RxBH5qLIvCVI&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_EARTH_API_KEY }}&libraries=places"></script>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </head>
