@@ -141,7 +141,8 @@ fetch('/static/files/all-airbases-response.json')  // Update the file path accor
       const combinedEntry = {
         location: properties.location,
         icao: properties.icao,
-        name: properties.name
+        name: properties.name,
+        url: properties.url
       };
 
       // Push the combined entry into the list
@@ -389,11 +390,14 @@ function openPopupCard(selectedLocation) {
     const titleElement = document.getElementById('popup-card-title');
     const nameElement = document.getElementById('popup-card-name');
     const icaoElement = document.getElementById('popup-card-icao');
+    const urlElement = document.getElementById('popup-card-url');
 
     // Populate information
     titleElement.textContent = 'Destination Information';
     nameElement.textContent = selectedLocation.name;
     icaoElement.textContent = selectedLocation.icao;
+    urlElement.innerHTML = `<a href="${selectedLocation.url}" target="_blank" rel="noopener noreferrer">${selectedLocation.url}</a>`;
+
     // Add more information fields as needed
 
     // Show the popup card
